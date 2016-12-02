@@ -1,4 +1,4 @@
-/* 
+/*
  * Poly2Tri Copyright (c) 2009-2010, Poly2Tri Contributors
  * http://code.google.com/p/poly2tri/
  *
@@ -96,14 +96,14 @@ void Triangle::ClearNeighbor(Triangle *triangle )
     }
     else if( neighbors_[1] == triangle )
     {
-        neighbors_[1] = NULL;            
+        neighbors_[1] = NULL;
     }
     else
     {
         neighbors_[2] = NULL;
     }
 }
-    
+
 void Triangle::ClearNeighbors()
 {
   neighbors_[0] = NULL;
@@ -345,14 +345,14 @@ void Triangle::SetDelunayEdgeCW(Point& p, bool e)
 }
 
 // The neighbor across to given point
-Triangle& Triangle::NeighborAcross(Point& opoint)
+Triangle* Triangle::NeighborAcross(Point& opoint)
 {
   if (&opoint == points_[0]) {
-    return *neighbors_[0];
+    return neighbors_[0];
   } else if (&opoint == points_[1]) {
-    return *neighbors_[1];
+    return neighbors_[1];
   }
-  return *neighbors_[2];
+  return neighbors_[2];
 }
 
 void Triangle::DebugPrint()
